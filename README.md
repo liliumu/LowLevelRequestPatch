@@ -12,7 +12,9 @@ Todo/done list
 * [x] UserScript
   + [x] General
   + [x] TweetDeck
-* [ ] Get xhr request header
+  + [x] Logging
+* [x] Get xhr response url
+* [ ] Get xhr request header / url
 * [ ] Override `fetch` api
 
 GitHub Pages demo site
