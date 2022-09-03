@@ -18,6 +18,7 @@ Todo/done list
   + [x] General
   + [x] TweetDeck
   + [x] Logging
+  + [x] Twitter Web
 * [x] Get xhr response url
 * [ ] Get xhr request header / url
 * [ ] Override `fetch` api
