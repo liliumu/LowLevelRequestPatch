@@ -10,9 +10,10 @@ Todo list
 
 * [x] Get xhr response header
 * [x] UserScript
-* [ ] [Get xhr request header](https://stackoverflow.com/questions/58776280/how-can-i-convert-arraybuffer-to-json)
+* [ ] Get xhr request header
 * [ ] Override `fetch` api
 
 GitHub Pages demo site
 
-- https://liliumu.github.io/LowLevelRequestPatch/
+- ![](https://github.com/liliumu/LowLevelRequestPatch/actions/workflows/pages.yml/badge.svg)
+- https://liliumu.github.io/LowLevelRequestPatch/ 
