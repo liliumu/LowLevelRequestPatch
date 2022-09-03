@@ -19,7 +19,7 @@ var MyXMLHttpRequest = function (...args) {
     }
 
     if (ctype.includes("text/html")) {
-      var text = res.slice(1, 200);
+      var text = res.slice(0, 100);
 
       console.log("# text");
       console.log(args);
