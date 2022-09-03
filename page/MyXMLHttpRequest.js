@@ -13,9 +13,9 @@
     "use strict";
 
     // Your code here...
-    var Original = window.XMLHttpRequest;
+    var OriginalXMLHttpRequest = window.XMLHttpRequest;
     var MyXMLHttpRequest = function (...args) {
-        var mocked = new Original(...args);
+        var mocked = new OriginalXMLHttpRequest(...args);
         mocked.onload = () => {
             console.log(res);
             var res = mocked.response;
