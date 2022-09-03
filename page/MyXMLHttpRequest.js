@@ -1,46 +1,31 @@
-// ==UserScript==
-// @name         MyXMLHttpRequest
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @match        https://*/*
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @grant        none
-// ==/UserScript==
+var OriginalXMLHttpRequest = window.XMLHttpRequest;
 
-(function () {
-  "use strict";
+var MyXMLHttpRequest = function (...args) {
+  var mocked_xhr = new OriginalXMLHttpRequest(...args);
 
-  // Your code here...
-  var OriginalXMLHttpRequest = window.XMLHttpRequest;
+  mocked_xhr.onload = () => {
+    var res = mocked_xhr.response;
+    var ctype = mocked_xhr.getResponseHeader("content-type");
 
-  var MyXMLHttpRequest = function (...args) {
-    var mocked_xhr = new OriginalXMLHttpRequest(...args);
+    console.log("# mocked_xhr.onload")
+    console.log(ctype);
+    console.log(res);
 
-    mocked_xhr.onload = () => {
-      var res = mocked_xhr.response;
-      var ctype = mocked_xhr.getResponseHeader("content-type");
+    if (ctype.includes("json")) {
+      var jsn = JSON.parse(res);
+      console.log("# json");
+      console.log(jsn);
+    }
 
-      console.log(res);
-      console.log(ctype);
-
-      if (ctype.includes("json")) {
-        var jsn = JSON.parse(res);
-        console.log("# json");
-        console.log(jsn);
-      }
-
-      if (ctype.includes("text/html")) {
-        var text = res.slice(1, 200);
-        console.log("# text");
-        console.log(args);
-        console.log(text);
-      }
-    };
-
-    return mocked_xhr;
+    if (ctype.includes("text/html")) {
+      var text = res.slice(1, 200);
+      console.log("# text");
+      console.log(args);
+      console.log(text);
+    }
   };
 
-  window.XMLHttpRequest = MyXMLHttpRequest;
-})();
+  return mocked_xhr;
+};
+
+window.XMLHttpRequest = MyXMLHttpRequest;
