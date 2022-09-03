@@ -15,18 +15,27 @@
   // Your code here...
   var OriginalXMLHttpRequest = window.XMLHttpRequest;
   var apiUrls = ["https://api.twitter.com/", "https://twitter.com/i/api/"];
+  var skipUrls = [
+    "https://api.twitter.com/1.1/live_pipeline/update_subscriptions",
+    "https://twitter.com/i/api/1.1/promoted_content/log.json",
+  ];
 
   var MyXMLHttpRequest = function (...args) {
     var mocked = new OriginalXMLHttpRequest(...args);
 
     setTimeout(function () {
       var xhr = mocked;
-      // console.log("url <-", xhr.responseURL);
-      if (apiUrls.some((s) => xhr.responseURL.startsWith(s))) {
+      var url = xhr.responseURL;
+      // console.log("url <-", url);
+      if (apiUrls.some((s) => url.startsWith(s))) {
+        if (skipUrls.some((s) => url.startsWith(s))) {
+          return;
+        }
         var text = xhr.responseText;
         if (text) {
-          console.log("url <-", xhr.responseURL);
-          console.log(JSON.parse(text));
+          console.log("");
+          console.log("url <-", url);
+          // console.log(JSON.parse(text));
           console.log(text.slice(0, 800).replace(/\s+/g, " "));
         }
       }
