@@ -1,3 +1,5 @@
+My weekend project to hook browser HTTP requests and output them to console.log.
+
 Dev server
 
 ```
