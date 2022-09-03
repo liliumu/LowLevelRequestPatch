@@ -3,7 +3,7 @@ A project I made this weekend that hooks browser HTTP requests and outputs them 
 Dev server
 
 ```
-python -m http.server --directory ./page 8080
+python3 -m http.server --directory ./page 8080
 ```
 
 Todo list
