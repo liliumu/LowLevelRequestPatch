@@ -15,4 +15,4 @@ Todo list
 
 GitHub Pages demo site
 
-- https://liliumu.github.io/LowLevelRequestPatch/
+- https://liliumu.github.io/LowLevelRequestPatch/ ![](https://github.com/liliumu/LowLevelRequestPatch/actions/workflows/pages.yml/badge.svg)
