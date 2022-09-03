@@ -10,7 +10,7 @@ Todo list
 
 * [x] Get xhr response header
 * [x] UserScript
-* [ ] Get xhr request header
+* [ ] [Get xhr request header](https://stackoverflow.com/questions/58776280/how-can-i-convert-arraybuffer-to-json)
 * [ ] Override `fetch` api
 
 GitHub Pages demo site
