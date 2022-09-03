@@ -30,8 +30,9 @@
         var text = xhr.responseText;
         console.log("body <-", text.slice(0, 400).replace(/\s+/g, " "));
       } else if (xhr.responseType == "arraybuffer") {
-        var buff = new TextDecoder().decode(xhr.response);
-        console.log("buff <-", buff.slice(0, 400).replace(/\s+/g, " "));
+        var buffer = xhr.response;
+        var decoded = new TextDecoder().decode(buffer);
+        console.log("buff <-", decoded.slice(0, 400).replace(/\s+/g, " "));
       } else {
         console.log("type <-", xhr.responseType);
       }
