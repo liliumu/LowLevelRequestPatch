@@ -10,33 +10,37 @@
 // ==/UserScript==
 
 (function () {
-    "use strict";
+  "use strict";
 
-    // Your code here...
-    var OriginalXMLHttpRequest = window.XMLHttpRequest;
-    var MyXMLHttpRequest = function (...args) {
-        var mocked = new OriginalXMLHttpRequest(...args);
-        mocked.onload = () => {
-            console.log(res);
-            var res = mocked.response;
-            var ctype = mocked.getResponseHeader("content-type");
-            console.log(ctype);
+  // Your code here...
+  var OriginalXMLHttpRequest = window.XMLHttpRequest;
 
-            if (ctype.includes("json")) {
-                var jsn = JSON.parse(res);
-                console.log("# json");
-                console.log(jsn);
-            }
+  var MyXMLHttpRequest = function (...args) {
+    var mocked_xhr = new OriginalXMLHttpRequest(...args);
 
-            if (ctype.includes("text/html")) {
-                var text = res.slice(1, 200);
-                console.log("# text");
-                console.log(args);
-                console.log(text);
-            }
-        };
-        return mocked;
+    mocked_xhr.onload = () => {
+      var res = mocked_xhr.response;
+      var ctype = mocked_xhr.getResponseHeader("content-type");
+
+      console.log(res);
+      console.log(ctype);
+
+      if (ctype.includes("json")) {
+        var jsn = JSON.parse(res);
+        console.log("# json");
+        console.log(jsn);
+      }
+
+      if (ctype.includes("text/html")) {
+        var text = res.slice(1, 200);
+        console.log("# text");
+        console.log(args);
+        console.log(text);
+      }
     };
 
-    window.XMLHttpRequest = MyXMLHttpRequest;
+    return mocked_xhr;
+  };
+
+  window.XMLHttpRequest = MyXMLHttpRequest;
 })();
