@@ -11,17 +11,23 @@
   </script>
 </head>
 <body>
-  <p>index.html</p>
-  <li><a href="./MyXMLHttpRequest.user.js">MyXMLHttpRequest.user.js</a></li>
   <script type="text/javascript">
     console.log("# body");
     setTimeout(function () {
       var url = window.location.href;
       console.log(url);
       axios.get(url).then(function (resp) {
-        console.log("# resp")
+        console.log("# resp");
         console.log(resp);
       });
     }, 1000);
   </script>
+
+  <p>UserScript:</p>
+  <li>
+    <a href="./userjs/MyXMLHttpRequest.user.js">MyXMLHttpRequest.user.js</a>
+  </li>
+  <li>
+    <a href="./userjs/XHRLog_TweetDeck.user.js">XHRLog_TweetDeck.user.js</a>
+  </li>
 </body>
