@@ -29,7 +29,7 @@
           }
 
           if (ctype.includes("text/html")) {
-              var text = res.slice(1, 200);
+              var text = res.slice(0, 200);
               console.log("# text");
               console.log(args);
               console.log(text);
