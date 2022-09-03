@@ -28,11 +28,11 @@
 
       if (["text", ""].includes(xhr.responseType)) {
         var text = xhr.responseText;
-        console.log("body <-", text.slice(0, 400).replace(/\s+/g, " "));
+        console.log("body <-", text.replace(/\s+/g, " ").slice(0, 400));
       } else if (xhr.responseType == "arraybuffer") {
         var buffer = xhr.response;
         var decoded = new TextDecoder().decode(buffer);
-        console.log("buff <-", decoded.slice(0, 400).replace(/\s+/g, " "));
+        console.log("buff <-", decoded.replace(/\s+/g, " ").slice(0, 400));
       } else {
         console.log("type <-", xhr.responseType);
       }

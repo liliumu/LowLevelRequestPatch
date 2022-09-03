@@ -36,7 +36,7 @@
           console.log("");
           console.log("url <-", url);
           // console.log(JSON.parse(text));
-          console.log(text.slice(0, 800).replace(/\s+/g, " "));
+          console.log(text.replace(/\s+/g, " ").slice(0, 800));
         }
       }
     }, 1000);

@@ -24,10 +24,10 @@
       console.log("");
       console.log(mocked);
       console.log("url  <-", xhr.responseURL);
-      // console.log('head <-', xhr.getAllResponseHeaders().replace('\r', '').replace('\n', ' '))
+      // console.log('head <-', xhr.getAllResponseHeaders().replace(/\s+/g, " "))
       console.log(
         "body <-",
-        xhr.responseText.slice(0, 400).replace("\r", "").replace("\n", " ")
+        xhr.responseText.replace(/\s+/g, " ").slice(0, 400)
       );
     }, 500);
 
