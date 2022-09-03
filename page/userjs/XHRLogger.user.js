@@ -29,10 +29,11 @@
       if (["text", ""].includes(xhr.responseType)) {
         var text = xhr.responseText;
         console.log("body <-", text.slice(0, 400).replace(/\s+/g, " "));
-      }
-      if (xhr.responseType == "arraybuffer") {
+      } else if (xhr.responseType == "arraybuffer") {
         var buff = new TextDecoder().decode(xhr.response);
         console.log("buff <-", buff.slice(0, 400).replace(/\s+/g, " "));
+      } else {
+        console.log("type <-", xhr.responseType);
       }
     }, 1000);
 
