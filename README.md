@@ -1,4 +1,4 @@
-My weekend project to hook browser HTTP requests and output them to console.log.
+A project I made this week that hooks browser HTTP requests and outputs them to console.log.
 
 Dev server
 
