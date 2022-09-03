@@ -21,11 +21,20 @@
     setTimeout(function () {
       var xhr = mocked;
       window.xhr = xhr;
+
       console.log("");
-      console.log(mocked);
+      console.log(xhr);
       console.log("url  <-", xhr.responseURL);
-      console.log("body <-", xhr.responseText.slice(0, 400).replace(/\s+/g, " "));
-    }, 500);
+
+      if (["text", ""].includes(xhr.responseType)) {
+        var text = xhr.responseText;
+        console.log("body <-", text.slice(0, 400).replace(/\s+/g, " "));
+      }
+      if (xhr.responseType == "arraybuffer") {
+        var buff = new TextDecoder().decode(xhr.response);
+        console.log("buff <-", buff.slice(0, 400).replace(/\s+/g, " "));
+      }
+    }, 1000);
 
     return mocked;
   };
