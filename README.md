@@ -13,6 +13,6 @@ Todo list
 * [ ] Get xhr request header
 * [ ] Override `fetch` api
 
-GitHub Pages site
+GitHub Pages demo site
 
 - https://liliumu.github.io/LowLevelRequestPatch/
